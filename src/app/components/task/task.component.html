@@ -1,0 +1,10 @@
+<li [class]="'list-group-item '+getItemVariant()">
+
+  <header>
+    <h2 class="d-inline">{{name}}</h2>
+    <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
+  </header>
+
+  <button (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
+  
+</li>
