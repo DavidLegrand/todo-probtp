@@ -1,10 +1,20 @@
 <li [class]="'list-group-item '+getItemVariant()">
-  
+
   <header>
-    <h2 class="d-inline">{{name}}<input [(ngModel)]="name" /></h2>
+    <h2 class="d-inline">
+
+      <span *ngIf="!editMode" (dblclick)="toggleEditMode()" [style.cursor]="'pointer'">
+        {{task.name}}
+      </span>
+      <form *ngIf="editMode" (submit)="toggleEditMode()">
+        <input [(ngModel)]="task.name" name="editName" />
+      </form>
+
+
+    </h2>
     <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
   </header>
-
+  <p>{{task.description}}</p>
   <button (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
-  
+
 </li>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Task } from 'src/app/models/task';
 
 @Component({
   selector: 'app-task',
@@ -6,33 +7,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
-  name: string = 'Faire la vaisselle';
-  complete: boolean = false;
+  @Input() task: Task;
+  editMode = false;
 
-  user = { firstName: 'David' };
   constructor() {}
-
   ngOnInit(): void {}
 
+  toggleEditMode(): void {
+    this.editMode = !this.editMode;
+  }
+  
   getComplete(): string {
-    return this.complete ? 'Terminée' : 'En cours';
+    return this.task.complete ? 'Terminée' : 'En cours';
   }
 
   getItemVariant(): string {
-    return this.complete
+    return this.task.complete
       ? 'list-group-item-success'
       : 'list-group-item-warning';
   }
 
   getBadgeVariant(): string {
-    return this.complete ? 'bg-success' : 'bg-warning text-dark';
+    return this.task.complete ? 'bg-success' : 'bg-warning text-dark';
   }
 
   getBtnTxt(): string {
-    return this.complete ? 'Annuler' : 'Terminer';
+    return this.task.complete ? 'Annuler' : 'Terminer';
   }
 
   toggleComplete(): void {
-    this.complete = !this.complete;
+    this.task.complete = !this.task.complete;
   }
 }

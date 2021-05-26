@@ -10,8 +10,10 @@ export class EnfantComponent implements OnInit {
   @Input() ville: string;
   @Input() nbBonbon: number;
 
-  @Output() bonbonChange = new EventEmitter();
+  @Output() bonbonChange: EventEmitter<number>;
 
-  constructor() {}
+  constructor() {
+    this.bonbonChange = new EventEmitter();
+  }
   ngOnInit(): void {}
 }
