@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TaskComponent implements OnInit {
   name: string = 'Faire la vaisselle';
   complete: boolean = false;
-  className = 'list-group-item';
+
+  user = { firstName: 'David' };
   constructor() {}
 
   ngOnInit(): void {}
@@ -30,7 +31,7 @@ export class TaskComponent implements OnInit {
   getBtnTxt(): string {
     return this.complete ? 'Annuler' : 'Terminer';
   }
-  
+
   toggleComplete(): void {
     this.complete = !this.complete;
   }

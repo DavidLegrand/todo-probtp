@@ -1,7 +1,7 @@
 <li [class]="'list-group-item '+getItemVariant()">
-
+  
   <header>
-    <h2 class="d-inline">{{name}}</h2>
+    <h2 class="d-inline">{{name}}<input [(ngModel)]="name" /></h2>
     <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
   </header>
 

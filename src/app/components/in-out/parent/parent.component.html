@@ -1,0 +1,21 @@
+<ul>
+  <app-enfant 
+    [ordre]="data[0].ordre" 
+    [ville]="data[0].ville" 
+    [nbBonbon]="data[0].nbBonbons" 
+    (bonbonChange)="calculSommeBonbons($event, data[0])">
+  </app-enfant>
+  <app-enfant 
+    [ordre]="data[1].ordre" 
+    [ville]="data[1].ville" 
+    [nbBonbon]="data[1].nbBonbons" 
+    (bonbonChange)="calculSommeBonbons($event, data[1])">
+  </app-enfant>
+  <app-enfant 
+    [ordre]="data[2].ordre" 
+    [ville]="data[2].ville" 
+    [nbBonbon]="data[2].nbBonbons" 
+    (bonbonChange)="calculSommeBonbons($event, data[2])">
+  </app-enfant>
+  <h5>La somme totale des bonbons de mes enfants est de : {{sommeBonbons}}</h5>
+</ul>
