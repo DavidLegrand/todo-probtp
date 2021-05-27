@@ -31,5 +31,14 @@ export class TodoListService {
 
   }
 
+  toogleComplete(id: number) {
+    for(let i in this.tasks) {
+      if(this.tasks[i].id === id) {
+        this.tasks[i].complete = !this.tasks[i].complete;
+        return;
+      }
+    }
+  }
+
   
 }

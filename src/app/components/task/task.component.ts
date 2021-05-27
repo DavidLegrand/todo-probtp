@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task';
+import { TodoListService } from 'src/app/services/todolist.service';
 
 @Component({
   selector: 'app-task',
@@ -10,7 +11,8 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
   editMode = false;
 
-  constructor() {}
+  constructor(public todoListService: TodoListService) {}
+
   ngOnInit(): void {}
 
   toggleEditMode(): void {
@@ -36,6 +38,6 @@ export class TaskComponent implements OnInit {
   }
 
   toggleComplete(): void {
-    this.task.complete = !this.task.complete;
+    this.todoListService.toogleComplete(this.task.id);
   }
 }
