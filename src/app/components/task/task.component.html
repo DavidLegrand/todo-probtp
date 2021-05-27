@@ -4,7 +4,7 @@
     <h2 class="d-inline">
 
       <span *ngIf="!editMode" (dblclick)="toggleEditMode()" [style.cursor]="'pointer'">
-        {{task.name}}
+        {{getName()}}
       </span>
       <form *ngIf="editMode" (submit)="toggleEditMode()">
         <input [(ngModel)]="task.name" name="editName" />
@@ -14,7 +14,7 @@
     </h2>
     <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
   </header>
-  <p>{{task.description}}</p>
+  <p>{{getDescription()}}</p>
   <button (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
 
 </li>

@@ -40,5 +40,26 @@ export class TodoListService {
     }
   }
 
+  getTask(id: number) {
+    for(let i in this.tasks) {
+      if(this.tasks[i].id === id) {
+        return this.tasks[i];
+      }
+    }
+    return null;
+  }
+
+  getName(id: number) {    
+    return this.getTask(id).name;
+  }
+
+  getDescription(id: number) {
+    return this.getTask(id).description;    
+  }
+
+  isComplete(id: number) {
+    return this.getTask(id).complete;
+  }
+
   
 }
