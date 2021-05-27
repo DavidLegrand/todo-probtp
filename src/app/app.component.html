@@ -4,8 +4,8 @@
 
       <h1 class="text-center display-4 my-5">{{title}}</h1>
 
-      <ul class="list-group" *ngIf="tasks.length; else noTasks">
-        <app-task *ngFor="let task of tasks; trackBy:trackById" [task]="task"></app-task>
+      <ul class="list-group" *ngIf="todoListService.tasks.length; else noTasks">
+        <app-task *ngFor="let task of todoListService.tasks; trackBy:trackById" [task]="task"></app-task>
       </ul>
       <ng-template #noTasks>
         <div class="text-center">
