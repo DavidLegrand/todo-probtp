@@ -40,7 +40,7 @@ export class TodoListService {
     }
   }
 
-  getTask(id: number) {
+  getTask(id: number) : Task {
     for(let i in this.tasks) {
       if(this.tasks[i].id === id) {
         return this.tasks[i];
@@ -49,15 +49,15 @@ export class TodoListService {
     return null;
   }
 
-  getName(id: number) {    
+  getName(id: number) : string {    
     return this.getTask(id).name;
   }
 
-  getDescription(id: number) {
+  getDescription(id: number) : string {
     return this.getTask(id).description;    
   }
 
-  isComplete(id: number) {
+  isComplete(id: number) : boolean {
     return this.getTask(id).complete;
   }
 

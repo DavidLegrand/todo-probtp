@@ -6,11 +6,12 @@
       <span *ngIf="!editMode" (dblclick)="toggleEditMode()" [style.cursor]="'pointer'">
         {{getName()}}
       </span>
+      <!-- NE FONCTIONNE PAS LE NG MODEL AVEC UN SERVICE CAR IL FAUT UTILISER LES OBSERVABLES -->
+      <!-- 
       <form *ngIf="editMode" (submit)="toggleEditMode()">
         <input [(ngModel)]="task.name" name="editName" />
       </form>
-
-
+      -->
     </h2>
     <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
   </header>
