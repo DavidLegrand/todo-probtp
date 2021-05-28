@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
@@ -12,8 +13,17 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskComponent, ParentComponent, EnfantComponent, TodolistComponent, NavComponent, LoginComponent, LogoutComponent],
-  imports: [BrowserModule, FormsModule],
+  declarations: [
+    AppComponent,
+    TaskComponent,
+    ParentComponent,
+    EnfantComponent,
+    TodolistComponent,
+    NavComponent,
+    LoginComponent,
+    LogoutComponent,
+  ],
+  imports: [BrowserModule, FormsModule, CommonModule],
   providers: [],
   bootstrap: [AppComponent],
 })

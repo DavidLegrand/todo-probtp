@@ -1,5 +1,5 @@
-<ul class="list-group" *ngIf="todoListService.tasks.length; else noTasks">
-  <app-task *ngFor="let task of todoListService.tasks; trackBy:trackById" [idTask]="task.id"></app-task>
+<ul class="list-group" *ngIf="gettdls().tasks.length; else noTasks">
+  <app-task *ngFor="let task of gettdls().tasks; trackBy:trackById" [idTask]="task.id"></app-task>
 </ul>
 <ng-template #noTasks>
 <div class="text-center">

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Task } from 'src/app/models/task';
 import { TodoListService } from 'src/app/services/todolist.service';
 
 @Component({
@@ -9,42 +10,27 @@ import { TodoListService } from 'src/app/services/todolist.service';
 export class TaskComponent implements OnInit {
   @Input() idTask: number;
   editMode = false;
+  task: Task;
 
-  constructor(public todoListService: TodoListService) {}
+  constructor(private tdls: TodoListService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.task = this.tdls.getTask(this.idTask);
+  }
 
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }
-  
-  getComplete(): string {
-    return this.todoListService.isComplete(this.idTask) ? 'Terminée' : 'En cours';
-  }
 
-  getName(): string {
-    return this.todoListService.getName(this.idTask);
-  }
-
-  getDescription(): string {
-    return this.todoListService.getDescription(this.idTask);
-  }
-
-  getItemVariant(): string {
-    return this.todoListService.isComplete(this.idTask)
-      ? 'list-group-item-success'
-      : 'list-group-item-warning';
-  }
-
-  getBadgeVariant(): string {
-    return this.todoListService.isComplete(this.idTask) ? 'bg-success' : 'bg-warning text-dark';
+  getCompleteString(): string {
+    return this.task.complete ? 'Terminée' : 'En cours';
   }
 
   getBtnTxt(): string {
-    return this.todoListService.isComplete(this.idTask) ? 'Annuler' : 'Terminer';
+    return this.task.complete ? 'Annuler' : 'Terminer';
   }
 
   toggleComplete(): void {
-    this.todoListService.toogleComplete(this.idTask);
+    this.tdls.toogleComplete(this.idTask);
   }
 }

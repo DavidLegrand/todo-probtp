@@ -1,21 +1,23 @@
-<li [class]="'list-group-item '+getItemVariant()">
+<li
+  [ngClass]="{'list-group-item':true, 'list-group-item-success':task.complete, 'list-group-item-warning':!task.complete}">
 
   <header>
     <h2 class="d-inline">
 
       <span *ngIf="!editMode" (dblclick)="toggleEditMode()" [style.cursor]="'pointer'">
-        {{getName()}}
+        {{task.name}}
       </span>
-      <!-- NE FONCTIONNE PAS LE NG MODEL AVEC UN SERVICE CAR IL FAUT UTILISER LES OBSERVABLES -->
-      <!-- 
+
       <form *ngIf="editMode" (submit)="toggleEditMode()">
         <input [(ngModel)]="task.name" name="editName" />
       </form>
-      -->
+
     </h2>
-    <span [class]="'d-inline float-end badge '+getBadgeVariant()">{{getComplete()}}</span>
+    <span
+      [ngClass]="{'d-inline float-end badge':true, 'bg-success':task.complete, 'bg-warning text-dark':!task.complete}">{{getCompleteString()}}</span>
   </header>
-  <p>{{getDescription()}}</p>
+  <div>Créée le : {{task.created|date:'dd/MM/y à HH:mm'}}</div>
+  <div>Description : {{task.description}}</div>
   <button (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
 
 </li>
