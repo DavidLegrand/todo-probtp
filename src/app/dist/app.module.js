@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var task_component_1 = require("./components/task/task.component");
 var parent_component_1 = require("./components/in-out/parent/parent.component");
@@ -34,7 +35,7 @@ var AppModule = /** @class */ (function () {
                 login_component_1.LoginComponent,
                 logout_component_1.LogoutComponent,
             ],
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, common_1.CommonModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, common_1.CommonModule, router_1.RouterModule],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
         })

@@ -3,21 +3,10 @@
     <div class="col">
 
       <app-nav></app-nav>
-      
+      <app-login></app-login>
+      <app-logout></app-logout>
       <app-todolist></app-todolist>
-      <!--      
-      <h1 class="text-center display-4 my-5">{{title}}</h1>
-      <ul class="list-group" *ngIf="todoListService.tasks.length; else noTasks">
-        <app-task *ngFor="let task of todoListService.tasks; trackBy:trackById" [idTask]="task.id"></app-task>
-      </ul>
-      <ng-template #noTasks>
-        <div class="text-center">
-          <div class="spinner-border text-primary mx-auto" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </ng-template>
-      -->
+      
     </div>
   </div>
 </main>

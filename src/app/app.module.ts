@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
@@ -23,7 +24,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     LoginComponent,
     LogoutComponent,
   ],
-  imports: [BrowserModule, FormsModule, CommonModule],
+  imports: [BrowserModule, FormsModule, CommonModule, RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
