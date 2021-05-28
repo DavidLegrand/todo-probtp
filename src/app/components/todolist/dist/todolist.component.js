@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var TodolistComponent = /** @class */ (function () {
     function TodolistComponent(tdls) {
         this.tdls = tdls;
+        this.title = "To Do List";
     }
     TodolistComponent.prototype.ngOnInit = function () { };
     TodolistComponent.prototype.gettdls = function () {

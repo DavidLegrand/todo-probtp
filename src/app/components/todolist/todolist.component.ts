@@ -8,6 +8,7 @@ import { TodoListService } from '../../services/todolist.service';
   styleUrls: ['./todolist.component.css'],
 })
 export class TodolistComponent implements OnInit {
+  title = "To Do List"
   constructor(private tdls: TodoListService) {}
 
   ngOnInit(): void {}

@@ -1,3 +1,8 @@
+
+
+
+<h1 class="text-center display-4 my-5">{{title}}</h1>
+
 <ul class="list-group" *ngIf="gettdls().tasks.length; else noTasks">
   <app-task *ngFor="let task of gettdls().tasks; trackBy:trackById" [idTask]="task.id"></app-task>
 </ul>
