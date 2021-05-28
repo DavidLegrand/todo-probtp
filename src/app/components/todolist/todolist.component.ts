@@ -11,10 +11,11 @@ export class TodolistComponent implements OnInit {
   constructor(private tdls: TodoListService) {}
 
   ngOnInit(): void {}
-  
+
   gettdls(): TodoListService {
     return this.tdls;
   }
+  
   trackById(index: number, task: Task): number {
     return task.id;
   }

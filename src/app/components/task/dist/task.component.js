@@ -19,11 +19,14 @@ var TaskComponent = /** @class */ (function () {
     TaskComponent.prototype.toggleEditMode = function () {
         this.editMode = !this.editMode;
     };
+    TaskComponent.prototype.handleSubmit = function () {
+        this.toggleEditMode();
+    };
     TaskComponent.prototype.getCompleteString = function () {
         return this.task.complete ? 'Terminée' : 'En cours';
     };
     TaskComponent.prototype.getBtnTxt = function () {
-        return this.task.complete ? 'Annuler' : 'Terminer';
+        return this.task.complete ? 'Annuler la tâche' : 'Terminer la tâche';
     };
     TaskComponent.prototype.toggleComplete = function () {
         this.tdls.toogleComplete(this.idTask);

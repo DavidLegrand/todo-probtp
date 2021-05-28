@@ -35,20 +35,16 @@ var TodoListService = /** @class */ (function () {
         ];
     }
     TodoListService.prototype.toogleComplete = function (id) {
-        for (var i in this.tasks) {
-            if (this.tasks[i].id === id) {
-                this.tasks[i].complete = !this.tasks[i].complete;
-                return;
-            }
-        }
+        var task = this.getTask(id);
+        task.complete = !task.complete;
     };
+    // updateTask(updatedTask): void {
+    //   this.tasks.map((task) => {
+    //     if (task.id === updatedTask.id) task = updatedTask;
+    //   });
+    // }
     TodoListService.prototype.getTask = function (id) {
-        for (var i in this.tasks) {
-            if (this.tasks[i].id === id) {
-                return this.tasks[i];
-            }
-        }
-        return null;
+        return this.tasks.find(function (task) { return task.id === id; });
     };
     TodoListService = __decorate([
         core_1.Injectable({

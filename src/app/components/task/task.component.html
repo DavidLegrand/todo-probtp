@@ -1,23 +1,27 @@
-<li
-  [ngClass]="{'list-group-item':true, 'list-group-item-success':task.complete, 'list-group-item-warning':!task.complete}">
+<li (dblclick)="toggleEditMode()" [style.cursor]="'pointer'"
+  [ngClass]="{'list-group-item-action list-group-item':true, 'list-group-item-success':task.complete, 'list-group-item-warning':!task.complete}">
+  <form (submit)="handleSubmit()">
+    <header>
+      <h2 class="d-inline">
 
-  <header>
-    <h2 class="d-inline">
+        <span *ngIf="!editMode">
+          {{task.name}}
+        </span>
+        <input *ngIf="editMode" [(ngModel)]="task.name" name="editName" />
 
-      <span *ngIf="!editMode" (dblclick)="toggleEditMode()" [style.cursor]="'pointer'">
-        {{task.name}}
-      </span>
 
-      <form *ngIf="editMode" (submit)="toggleEditMode()">
-        <input [(ngModel)]="task.name" name="editName" />
-      </form>
+      </h2>
+      <span
+        [ngClass]="{'d-inline float-end badge':true, 'bg-success':task.complete, 'bg-warning text-dark':!task.complete}">{{getCompleteString()}}</span>
+    </header>
+    <div>Créée le : {{task.created|date:'dd/MM/y à HH:mm'}}</div>
+    <div *ngIf="!editMode">Description : {{task.description}}</div>
+    <input *ngIf="editMode" [(ngModel)]="task.description" name="editDescription" />
 
-    </h2>
-    <span
-      [ngClass]="{'d-inline float-end badge':true, 'bg-success':task.complete, 'bg-warning text-dark':!task.complete}">{{getCompleteString()}}</span>
-  </header>
-  <div>Créée le : {{task.created|date:'dd/MM/y à HH:mm'}}</div>
-  <div>Description : {{task.description}}</div>
-  <button (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
+    <div>
+      <button *ngIf="editMode" type="submit" class="btn btn-sm btn-dark">Valider les changements</button>
+    </div>
+  </form>
+  <button *ngIf="!editMode" (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
 
 </li>

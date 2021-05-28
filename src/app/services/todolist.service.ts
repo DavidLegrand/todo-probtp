@@ -34,20 +34,17 @@ export class TodoListService {
   }
 
   toogleComplete(id: number) {
-    for (let i in this.tasks) {
-      if (this.tasks[i].id === id) {
-        this.tasks[i].complete = !this.tasks[i].complete;
-        return;
-      }
-    }
+    const task = this.getTask(id);
+    task.complete = !task.complete;
   }
 
+  // updateTask(updatedTask): void {
+  //   this.tasks.map((task) => {
+  //     if (task.id === updatedTask.id) task = updatedTask;
+  //   });
+  // }
+
   getTask(id: number): Task {
-    for (let i in this.tasks) {
-      if (this.tasks[i].id === id) {
-        return this.tasks[i];
-      }
-    }
-    return null;
+    return this.tasks.find((task) => task.id === id);
   }
 }

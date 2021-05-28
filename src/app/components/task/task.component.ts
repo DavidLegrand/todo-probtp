@@ -22,15 +22,23 @@ export class TaskComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
+  handleSubmit(): void {
+    this.toggleEditMode();
+  }
+
   getCompleteString(): string {
     return this.task.complete ? 'Terminée' : 'En cours';
   }
 
   getBtnTxt(): string {
-    return this.task.complete ? 'Annuler' : 'Terminer';
+    return this.task.complete ? 'Annuler la tâche' : 'Terminer la tâche';
   }
 
   toggleComplete(): void {
     this.tdls.toogleComplete(this.idTask);
   }
+
+  // updateTask(): void {
+  //   this.tdls.updateTask(this.task);
+  // }
 }
