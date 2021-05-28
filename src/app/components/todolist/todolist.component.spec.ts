@@ -8,9 +8,8 @@ describe('TodolistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodolistComponent ]
-    })
-    .compileComponents();
+      declarations: [TodolistComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,13 @@ describe('TodolistComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('have a title property', () => {
+    expect(component.title).toEqual('To Do List');
+  });
+
+  it('should render an html list (ul)', () => {
+    let html = fixture.debugElement.nativeElement;
+    expect(html.querySelector('.list-group')).toBeTruthy();
   });
 });
