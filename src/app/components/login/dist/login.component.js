@@ -11,6 +11,7 @@ var core_1 = require("@angular/core");
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(AuthService) {
         this.AuthService = AuthService;
+        this.title = 'Se connecter';
     }
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.isAuth = function () {

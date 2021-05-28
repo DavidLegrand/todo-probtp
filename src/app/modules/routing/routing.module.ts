@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './../../components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { TodolistComponent } from './../../components/todolist/todolist.componen
       { path: '', component: TodolistComponent, pathMatch: 'full' },
       { path: 'todolist', component: TodolistComponent },
       { path: 'login', component: LoginComponent },
+      { path: '**', component: NotFoundComponent },
     ]),
   ],
 })

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   constructor(public AuthService: AuthService) {}
-
+  title = 'Se connecter';
   ngOnInit(): void {}
   isAuth(): boolean {
     return this.AuthService.isAuth;

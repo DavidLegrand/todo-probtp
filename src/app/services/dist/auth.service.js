@@ -9,14 +9,17 @@ exports.__esModule = true;
 exports.AuthService = void 0;
 var core_1 = require("@angular/core");
 var AuthService = /** @class */ (function () {
-    function AuthService() {
+    function AuthService(router) {
+        this.router = router;
         this.isAuth = true;
     }
     AuthService.prototype.login = function () {
         this.isAuth = true;
+        this.router.navigate(['']);
     };
     AuthService.prototype.logout = function () {
         this.isAuth = false;
+        this.router.navigate(['login']);
     };
     Object.defineProperty(AuthService.prototype, "isAuth", {
         get: function () {

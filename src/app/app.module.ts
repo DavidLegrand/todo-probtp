@@ -8,12 +8,14 @@ import { RoutingModule } from './modules/routing/routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     LogoutComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

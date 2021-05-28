@@ -1,1 +1,18 @@
-<button *ngIf="!isAuth()" class="btn btn-dark" (click)="login()">Login</button>
+<h1 class="text-center display-4 my-5">{{title}}</h1>
+<div class="row">
+  <div class="col-6 text-center">
+    <form>
+      <h2>Se connecter</h2>
+      <input type="text" class="form-control" placeholder="Login">
+      <input type=" password" class="form-control" placeholder="Mot de passe">
+      <button class="btn btn-dark" (click)="login()">Login</button>
+    </form>
+  </div>
+  <div class="col-6 text-center">
+    <form>
+      <h2>S'enregistrer</h2>
+      <input type="text" class="form-control" placeholder="Login">
+      <button class="btn btn-dark" (click)="login()">Inscription</button>
+    </form>
+  </div>
+</div>

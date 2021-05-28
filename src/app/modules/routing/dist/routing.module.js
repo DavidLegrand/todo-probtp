@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.RoutingModule = void 0;
+var not_found_component_1 = require("./../../components/not-found/not-found.component");
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
@@ -27,6 +28,7 @@ var RoutingModule = /** @class */ (function () {
                     { path: '', component: todolist_component_1.TodolistComponent, pathMatch: 'full' },
                     { path: 'todolist', component: todolist_component_1.TodolistComponent },
                     { path: 'login', component: login_component_1.LoginComponent },
+                    { path: '**', component: not_found_component_1.NotFoundComponent },
                 ]),
             ]
         })
