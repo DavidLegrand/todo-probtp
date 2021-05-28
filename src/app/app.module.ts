@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NavComponent,
     LogoutComponent,
     NotFoundComponent,
+    TaskDetailsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

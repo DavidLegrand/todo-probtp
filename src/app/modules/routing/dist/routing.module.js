@@ -7,6 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.RoutingModule = void 0;
+var is_auth_guard_1 = require("./../../guards/is-auth.guard");
+var home_component_1 = require("./../../components/home/home.component");
+var task_details_component_1 = require("./../../components/task-details/task-details.component");
 var not_found_component_1 = require("./../../components/not-found/not-found.component");
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
@@ -25,9 +28,17 @@ var RoutingModule = /** @class */ (function () {
                 common_1.CommonModule,
                 forms_1.FormsModule,
                 router_1.RouterModule.forRoot([
-                    { path: '', component: todolist_component_1.TodolistComponent, pathMatch: 'full' },
-                    { path: 'todolist', component: todolist_component_1.TodolistComponent },
+                    { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' },
+                    {
+                        path: 'todolist',
+                        canActivate: [is_auth_guard_1.IsAuthGuard],
+                        children: [
+                            { path: '', component: todolist_component_1.TodolistComponent },
+                            { path: ':id', component: task_details_component_1.TaskDetailsComponent },
+                        ]
+                    },
                     { path: 'login', component: login_component_1.LoginComponent },
+                    { path: '404', component: not_found_component_1.NotFoundComponent },
                     { path: '**', component: not_found_component_1.NotFoundComponent },
                 ]),
             ]

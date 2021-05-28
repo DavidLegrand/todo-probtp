@@ -1,3 +1,6 @@
+import { IsAuthGuard } from './../../guards/is-auth.guard';
+import { HomeComponent } from './../../components/home/home.component';
+import { TaskDetailsComponent } from './../../components/task-details/task-details.component';
 import { NotFoundComponent } from './../../components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -14,9 +17,17 @@ import { TodolistComponent } from './../../components/todolist/todolist.componen
     CommonModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: TodolistComponent, pathMatch: 'full' },
-      { path: 'todolist', component: TodolistComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      {
+        path: 'todolist',
+        canActivate: [IsAuthGuard],
+        children: [
+          { path: '', component: TodolistComponent },
+          { path: ':id', component: TaskDetailsComponent },
+        ],
+      },
       { path: 'login', component: LoginComponent },
+      { path: '404', component: NotFoundComponent },
       { path: '**', component: NotFoundComponent },
     ]),
   ],

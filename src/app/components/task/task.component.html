@@ -22,6 +22,7 @@
       <button *ngIf="editMode" type="submit" class="btn btn-sm btn-dark">Valider les changements</button>
     </div>
   </form>
+  <button *ngIf="!editMode" (click)="showTaskDetails()" class="btn btn-sm btn-primary me-3">Détails</button>
   <button *ngIf="!editMode" (click)="toggleComplete()" class="btn btn-sm btn-dark">{{getBtnTxt()}}</button>
 
 </li>

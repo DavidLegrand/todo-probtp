@@ -12,21 +12,21 @@ var TodoListService = /** @class */ (function () {
     function TodoListService() {
         this.tasks = [
             {
-                id: 0,
+                id: 1,
                 name: 'Faire la vaisselle',
                 complete: true,
                 description: 'Ceci est ma description',
                 created: new Date()
             },
             {
-                id: 1,
+                id: 2,
                 name: 'Jeter les poubelles',
                 complete: true,
                 description: 'Ceci est ma description',
                 created: new Date()
             },
             {
-                id: 2,
+                id: 3,
                 name: 'Faire les courses',
                 complete: false,
                 description: 'Ceci est ma description',

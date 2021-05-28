@@ -9,12 +9,16 @@ exports.__esModule = true;
 exports.TaskComponent = void 0;
 var core_1 = require("@angular/core");
 var TaskComponent = /** @class */ (function () {
-    function TaskComponent(tdls) {
+    function TaskComponent(tdls, router) {
         this.tdls = tdls;
+        this.router = router;
         this.editMode = false;
     }
     TaskComponent.prototype.ngOnInit = function () {
         this.task = this.tdls.getTask(this.idTask);
+    };
+    TaskComponent.prototype.showTaskDetails = function () {
+        this.router.navigate(['todolist/' + this.idTask]);
     };
     TaskComponent.prototype.toggleEditMode = function () {
         this.editMode = !this.editMode;

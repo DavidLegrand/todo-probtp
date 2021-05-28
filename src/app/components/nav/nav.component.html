@@ -13,13 +13,11 @@
           <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
             routerLink="">Accueil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"
-            routerLink="todolist">To do list</a>
+        <li class="nav-item" *ngIf="auth.isAuth">
+          <a class="nav-link" routerLinkActive="active" routerLink="todolist">To do list</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active"
-            routerLink="login">Login</a>
+        <li class="nav-item" *ngIf="!auth.isAuth">
+          <a class="nav-link" routerLinkActive="active" routerLink="login">Login</a>
         </li>
 
 

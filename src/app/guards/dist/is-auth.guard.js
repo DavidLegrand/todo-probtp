@@ -6,20 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.NavComponent = void 0;
+exports.IsAuthGuard = void 0;
 var core_1 = require("@angular/core");
-var NavComponent = /** @class */ (function () {
-    function NavComponent(auth) {
+var IsAuthGuard = /** @class */ (function () {
+    function IsAuthGuard(auth, router) {
         this.auth = auth;
+        this.router = router;
     }
-    NavComponent.prototype.ngOnInit = function () { };
-    NavComponent = __decorate([
-        core_1.Component({
-            selector: 'app-nav',
-            templateUrl: './nav.component.html',
-            styleUrls: ['./nav.component.css']
+    IsAuthGuard.prototype.canActivate = function (route, state) {
+        if (!this.auth.isAuth) {
+            this.router.navigate(['login']);
+        }
+        return this.auth.isAuth;
+    };
+    IsAuthGuard = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], NavComponent);
-    return NavComponent;
+    ], IsAuthGuard);
+    return IsAuthGuard;
 }());
-exports.NavComponent = NavComponent;
+exports.IsAuthGuard = IsAuthGuard;

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { TodoListService } from 'src/app/services/todolist.service';
@@ -12,12 +13,14 @@ export class TaskComponent implements OnInit {
   editMode = false;
   task: Task;
 
-  constructor(private tdls: TodoListService) {}
+  constructor(private tdls: TodoListService, private router: Router) {}
 
   ngOnInit(): void {
     this.task = this.tdls.getTask(this.idTask);
   }
-
+  showTaskDetails(): void {
+    this.router.navigate(['todolist/' + this.idTask]);
+  }
   toggleEditMode(): void {
     this.editMode = !this.editMode;
   }

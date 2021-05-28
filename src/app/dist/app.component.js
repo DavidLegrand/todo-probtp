@@ -7,36 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppComponent = void 0;
+var rxjs_1 = require("rxjs");
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'To Do List';
-        this.tasks = [
-            {
-                id: 0,
-                name: 'Faire la vaisselle',
-                complete: true,
-                description: 'Ceci est ma description'
-            },
-            {
-                id: 1,
-                name: 'Jeter les poubelles',
-                complete: true,
-                description: 'Ceci est ma description'
-            },
-            {
-                id: 2,
-                name: 'Faire les courses',
-                complete: false,
-                description: 'Ceci est ma description'
-            },
-        ];
+        this.subject = new rxjs_1.Subject();
+        this.subject.next("Hey quelqu'un m'entend ?");
+        this.subscription = this.subject.subscribe(function (v) { return console.log(v); });
+        this.subject.next("ya quelqu'un ???");
     }
-    AppComponent.prototype.trackById = function (index, task) {
-        return task.id;
-    };
-    AppComponent.prototype.deleteTaskById = function (id) {
-        this.tasks = this.tasks.filter(function (task) { return task.id !== id; });
+    AppComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     AppComponent = __decorate([
         core_1.Component({
